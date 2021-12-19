@@ -17,6 +17,9 @@ const Tag = styled.span`
 
 class Tagbar extends React.Component {
     render() {
+        /* Grâce à la méthode map, on itère à travers un tableau, ici pour créer des éléments 
+        <li> contenant chacun des éléments du tableau en leur adjoignant une key, nécessaire 
+        dans ce cas dans React */
         const tagList = this.props.tags.map((item, index)  => <Tag key={`${item}-${index}`}> {item} </Tag>)
         return (
             <div>

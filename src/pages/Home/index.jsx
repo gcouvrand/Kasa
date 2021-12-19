@@ -22,7 +22,8 @@ const MainContainer = styled.div`
 class Home extends React.Component {
   render() {
     const title= "Chez vous, partout et ailleurs";
-
+  /* On itère avec la méthode map au sein du tableau pour créer autant de "Cards" que nécessaire
+  et on utilise comme key l'id de chaque logement */
   return (
     <div>
       <Banner bannerImg={ banner } title= { title } />

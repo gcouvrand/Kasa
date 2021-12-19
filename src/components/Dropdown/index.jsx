@@ -36,11 +36,12 @@ let Chevron = styled.img`
 class Dropdown extends React.Component {
     constructor(props) {
         super(props);
+        // On déclare l'état initial de isOpen (fermé par défaut)
             this.state = {
                 isOpen: false
             };
         }
-
+        // Cette fonction, quand déclenchée, change le booléen par son opposé, false devient true et inversement
     OpenDropdown() {
         this.setState({
             isOpen: !this.state.isOpen,
@@ -48,6 +49,7 @@ class Dropdown extends React.Component {
     }
     render() {
         return (
+            // On appelle la fonction OpenDropdown au clic sur le titre
             <MainDiv>
                 <TitleDropdown onClick={() => this.setState([ this.OpenDropdown()])}>
                     {this.props.title} <Chevron style={{transform: this.state.isOpen ? "rotate(180deg)" : "none"}} src={chevron} alt="" />

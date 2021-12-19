@@ -38,6 +38,7 @@ const CardTitle= styled.span`
 class Card extends React.Component {
     render() {
         return (
+            // On ajoute à l'URL de la fiche logement l'id du logement qui va être affiché
             <CardContainer to={"/Logement/" + this.props.id} >
                 <CardImg src={this.props.cover} alt="illustration" />
                 <CardTitle>{this.props.title}</CardTitle>

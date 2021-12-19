@@ -39,9 +39,11 @@ const MainDiv = styled.div`
 `
 class Logement extends React.Component {
     render() {
+        /* On s'assure que l'id du logement de la page chargée corresponde bien à un id
+        présent dans le JSON, et donc à un logement existant dedans */
         const id = window.location.pathname.substr(10);
         const logement = data.find((item) => item.id === id);
-        
+    // Si ce n'est pas le cas, on renvoie la page d'erreur 404
     return logement === undefined ? (<Error />) : (
         <MainDiv>
        <Carroussel pictures={logement.pictures} />

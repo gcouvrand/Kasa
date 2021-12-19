@@ -47,7 +47,8 @@ class Carroussel extends React.Component {
             index: 0
         };
     }
-
+    // Fonction qui permet d'avancer d'un cran dans le carroussel, et de revenir au début quand on clique
+    // sur la dernière image
     nextPicture() {
         if (this.state.index === this.props.pictures.length - 1) {
             this.setState({ index: 0})
@@ -56,6 +57,7 @@ class Carroussel extends React.Component {
         }
     }
 
+    // Même fonction mais dans le sens inverse
     previousPicture() {
         if (this.state.index === 0) {
             this.setState({ index: this.props.pictures.length - 1})
