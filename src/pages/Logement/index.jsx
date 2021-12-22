@@ -1,4 +1,3 @@
-import data from "../../logements.json";
 import React from "react";
 import Carroussel from "../../components/Carroussel";
 import Informations from "../../components/Informations";
@@ -38,9 +37,24 @@ const MainDiv = styled.div`
     }
 `
 class Logement extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
+
+    componentDidMount() {
+        fetch("../data.json")
+            .then(response => response.json())
+            .then(data => this.setState({ data: data }));
+    }
+    
     render() {
         /* On s'assure que l'id du logement de la page chargée corresponde bien à un id
         présent dans le JSON, et donc à un logement existant dedans */
+        const { data } = this.state;
         const id = window.location.pathname.substr(10);
         const logement = data.find((item) => item.id === id);
     // Si ce n'est pas le cas, on renvoie la page d'erreur 404

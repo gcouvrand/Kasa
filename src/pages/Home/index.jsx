@@ -2,7 +2,6 @@ import Banner from "../../components/Banner"
 import Card from "../../components/Card"
 import styled from "styled-components";
 import banner from "../../assets/banner.png"
-import data from "../../logements.json"
 import React from "react";
 
 const MainContainer = styled.div`
@@ -20,7 +19,21 @@ const MainContainer = styled.div`
 `
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        data: []
+    };
+}
+
+componentDidMount() {
+    fetch("./data.json")
+        .then(response => response.json())
+        .then(data => this.setState({ data: data }));
+}
+
   render() {
+    const { data } = this.state;
     const title= "Chez vous, partout et ailleurs";
   /* On itère avec la méthode map au sein du tableau pour créer autant de "Cards" que nécessaire
   et on utilise comme key l'id de chaque logement */
